@@ -181,11 +181,3 @@ button:disabled {
   font-weight: 300;
   padding: 12px 24px 0 24px;
 }
-
-@media (max-width: 600px) {
-  form#message-form {
-    display: flex;
-    flex-direction: column;
-    background-color: #0070cc;
-  }
-}

@@ -1,11 +1,11 @@
 const users = [];
 
 const addUser = ({ id, username, room }) => {
-  // Limpar os dados
+  // Limpa os dados
   username = username.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
-  // Validar os dados
+  // Valida os dados
   if (!username || !room) {
     return {
       error: "Username and room are required!",
@@ -17,19 +17,20 @@ const addUser = ({ id, username, room }) => {
     return user.room === room && user.username === username;
   });
 
-  // Validar username
+  // Validaa o username
   if (existingUser) {
     return {
       error: "Username is in use!",
     };
   }
 
-  // Armazenar user
+  // Armazena o user
   const user = { id, username, room };
   users.push(user);
   return { user };
 };
 
+// Remove um usuário
 const removeUser = (id) => {
   const index = users.findIndex((user) => user.id === id);
 
@@ -38,10 +39,12 @@ const removeUser = (id) => {
   }
 };
 
+// Busca por um usuário e retorna ele caso exista
 const getUser = (id) => {
   return users.find((user) => user.id === id);
 };
 
+// Retorna todos os usuários de uma sala
 const getUsersInRoom = (room) => {
   room = room.trim().toLowerCase();
   return users.filter((user) => user.room === room);
