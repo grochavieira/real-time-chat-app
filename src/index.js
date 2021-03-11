@@ -84,7 +84,7 @@ io.on("connection", (socket) => {
     if (user) {
       io.to(user.room).emit(
         "message",
-        generateMessage("admin", `${user.username} has left!`)
+        generateMessage("admin", `${user.username} saiu da sala!`)
       );
       io.to(user.room).emit("roomData", {
         room: user.room,
