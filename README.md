@@ -66,60 +66,24 @@ Abaixo disponibilizei um link para o site hospedado:
 ### Página de Inicio
 
 <div align="center">
-    <img width="100%" src="./assets/login_light.PNG" />
-    <img width="100%" src="./assets/login_dark.PNG " />
+    <img width="100%" src="./assets/main.PNG" />
 </div>
 
 ### Página de Chat
 
 <div align="center">
-    <img width="100%" src="./assets/main_light.PNG" />
-    <img width="100%" src="./assets/main_dark.PNG " />
-</div>
-
-### Modal que aparece ao súbir de nível
-
-<div align="center">
-    <img width="100%" src="./assets/modal_light.PNG" />
-    <img width="100%" src="./assets/modal_dark.PNG " />
-</div>
-
-### Página de Rankings
-
-<div align="center">
-    <img width="100%" src="./assets/ranking_light.PNG" />
-    <img width="100%" src="./assets/ranking_dark.PNG " />
+    <img width="100%" src="./assets/chat.PNG" />
 </div>
 
 ---
 
 ## 🚀 Como executar o projeto
 
-Este projeto contém apenas uma parte:
-
-1. Frontend (pasta web)
-
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/), [Yarn](https://classic.yarnpkg.com/en/docs/install).
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
-
-### ⚠️ Variáveis de Ambiente
-
-Além das ferramentas anteriores, após clonar o repositório, é necessário adicionar váriaveis de ambiente dentro de um arquivo .env na raíz (root) do projeto, que são:
-
-GITHUB_CLIENT_ID="É pego no Auth do seu github"
-
-GITHUB_CLIENT_SECRET="É pego no Auth do seu github"
-
-NEXTAUTH_URL="URL base do seu site, como http://localhost:3000 ou https://RealTimeChatApp-taupe-sigma.vercel.app/"
-
-AUTH_SECRET="Uma string de texto aleatória que é usada no NextAuth"
-
-JWT_SECRET="Uma string de texto aleatória que é usada no NextAuth"
-
-MONGODB_URI="URL do mongodb para armazenar os dados"
 
 #### 🧭 Rodando a aplicação web (Frontend)
 
@@ -131,16 +95,13 @@ $ git clone https://github.com/grochavieira/RealTimeChatApp.git
 # Acesse a pasta do projeto no seu terminal/cmd
 $ cd RealTimeChatApp
 
-# Vá para a pasta da aplicação Front End
-$ cd web
-
 # Instale as dependências
-$ yarn install
+$ npm install
 
 # Execute a aplicação em modo de desenvolvimento
-$ yarn dev
+$ npm run dev
 
-# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+# A aplicação será aberta na porta:3333 - acesse http://localhost:3333
 
 ```
 
@@ -150,22 +111,19 @@ $ yarn dev
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-#### **Website** ([React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/))
+#### **Website** ([Node](https://nodejs.org/en/) + HTML + CSS)
 
-- **[Next.js](https://nextjs.org/)**
-- **[Context](https://pt-br.reactjs.org/docs/context.html)**
-- **[js-cookie](https://github.com/js-cookie/js-cookie)**
-- **[css-Modules](https://github.com/css-modules/css-modules)**
-- **[MongoDB](https://www.mongodb.com/)**
-- **[Next-Auth](https://next-auth.js.org/)**
-- **[React Icons](https://react-icons.github.io/react-icons/)**
+- **[Socket.io](https://socket.io/)**
+- **[bad-words](https://www.npmjs.com/package/bad-words)**
+- **[moment.js](https://cdnjs.com/libraries/moment.js)**
+- **[mustache.js](https://cdnjs.com/libraries/mustache.js)**
+- **[qs.js](https://cdnjs.com/libraries/qs)**
 
-> Veja o arquivo [package.json](https://github.com/grochavieira/RealTimeChatApp/blob/master/web/package.json)
+> Veja o arquivo [package.json](https://github.com/grochavieira/RealTimeChatApp/blob/master/package.json)
 
 #### **Utilitários**
 
 - Editor: **[Visual Studio Code](https://code.visualstudio.com/)**
-- Fontes: **[Rajdhani](https://fonts.google.com/specimen/Rajdhani)**, **[Inter](https://fonts.google.com/specimen/Inter)**
 
 ---
 
