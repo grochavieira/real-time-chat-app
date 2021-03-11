@@ -18,13 +18,18 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 const port = process.env.PORT || 3333;
+
 const publicDirectoryPath = path.join(__dirname, "../public");
 
+// Renderiza o conteúdo da pasta public
 app.use(express.static(publicDirectoryPath));
 
+// mensagem padrão de conexão de um novo usuário
+// no socket.io
 io.on("connection", (socket) => {
   // console.log("New WebSocket connection");
 
+  // é ativado quando um novo usuário tenta se juntar a uma nova sala
   socket.on("join", (options, callback) => {
     const { error, user } = addUser({ id: socket.id, ...options });
 
@@ -36,13 +41,18 @@ io.on("connection", (socket) => {
     // especificamente para essa sala
     socket.join(user.room);
 
+    // emite uma mensagem de bem vindo somente para o usuário que se juntou a sala
     socket.emit("message", generateMessage("admin", "Bem vindo!"));
+
+    // emite uma mensagem a todos os usuários da sala, menos quem acabou de se juntar
     socket.broadcast
       .to(user.room)
       .emit(
         "message",
         generateMessage("admin", `${user.username} se juntou a sala de chat!`)
       );
+
+    // emite uma mensagem para todos os usuários da sala
     io.to(user.room).emit("roomData", {
       room: user.room,
       users: getUsersInRoom(user.room),
@@ -51,6 +61,7 @@ io.on("connection", (socket) => {
     callback();
   });
 
+  // utilizado para enviar mensagem de um usuário para todos na sala
   socket.on("sendMessage", (message, callback) => {
     const user = getUser(socket.id);
 
@@ -65,6 +76,7 @@ io.on("connection", (socket) => {
     callback("");
   });
 
+  // Usado para enviar a localização do usuário para todos na sala
   socket.on("sendLocation", (coords, callback) => {
     const user = getUser(socket.id);
 
@@ -78,6 +90,7 @@ io.on("connection", (socket) => {
     callback();
   });
 
+  // Usado quando um usuário fecha a aba ou sai da sala
   socket.on("disconnect", () => {
     const user = removeUser(socket.id);
 

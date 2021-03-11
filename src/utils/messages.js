@@ -1,3 +1,5 @@
+// funções utilizadas para padronizar o envio de mensagens para
+// a parte do cliente poder utilizar
 const generateMessage = (username, text) => {
   return {
     username,

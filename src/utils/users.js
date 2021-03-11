@@ -8,7 +8,7 @@ const addUser = ({ id, username, room }) => {
   // Valida os dados
   if (!username || !room) {
     return {
-      error: "Username and room are required!",
+      error: "Nome de usuário e sala são requiridos!",
     };
   }
 
@@ -17,10 +17,10 @@ const addUser = ({ id, username, room }) => {
     return user.room === room && user.username === username;
   });
 
-  // Validaa o username
+  // Valida o username
   if (existingUser) {
     return {
-      error: "Username is in use!",
+      error: "Nome de usuário já está sendo usado!",
     };
   }
 

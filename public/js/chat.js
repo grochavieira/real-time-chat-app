@@ -1,26 +1,28 @@
+// inicializa o socket no lado do cliente
 const socket = io();
 
-// Elementos
+// elementos
 const $messageForm = document.querySelector("#message-form");
 const $messageFormInput = $messageForm.querySelector("input");
 const $messageFormButton = $messageForm.querySelector("button");
 const $sendLocationButton = document.querySelector("#send-location");
 const $messages = document.querySelector("#messages");
 
-// Templates
+// templates utilizados pelo mustache.js
 const messageTemplate = document.querySelector("#message-template").innerHTML;
 const locationMessageTemplate = document.querySelector(
   "#location-message-template"
 ).innerHTML;
 const sidebarTemplate = document.querySelector("#sidebar-template").innerHTML;
 
-// Options
+// pega os dados do usuário no link http
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
 
+// Função utilizada para fazer o auto-rolamento das mensagens
 const autoscroll = () => {
-  // New message element
+  // Novo elemento que contém a mensagem enviada
   const $newMessage = $messages.lastElementChild;
 
   // Pega a altura da última mensagem
@@ -33,19 +35,21 @@ const autoscroll = () => {
   // Altura visível da tela de mensagens
   const visibleHeight = $messages.offsetHeight;
 
-  // Height of messages container
+  // Altura do container das mensagens
   const containerHeight = $messages.scrollHeight;
 
-  // How far have i scrolled?
+  // Pega até onde foi usado o rolamento
   const scrollOffset = $messages.scrollTop + visibleHeight;
 
+  // Caso a barra de rolamento esteja bem próxima da última mensagem
+  // enviada, é realizado o rolamento automático
   if (containerHeight - newMessageHeight <= scrollOffset) {
     $messages.scrollTop = $messages.scrollHeight;
   }
 };
 
+// socket que recebe as mensagens dos outros usuários
 socket.on("message", (message) => {
-  console.log(message);
   const html = Mustache.render(messageTemplate, {
     username: message.username,
     message: message.text,
@@ -55,6 +59,7 @@ socket.on("message", (message) => {
   autoscroll();
 });
 
+// socket que recebe os dados da sala
 socket.on("roomData", ({ room, users }) => {
   const html = Mustache.render(sidebarTemplate, {
     room,
@@ -64,9 +69,8 @@ socket.on("roomData", ({ room, users }) => {
   autoscroll();
 });
 
+// socket que recebe os dados de localização
 socket.on("locationMessage", (message) => {
-  console.log(message);
-
   const html = Mustache.render(locationMessageTemplate, {
     username: message.username,
     url: message.url,
@@ -75,27 +79,28 @@ socket.on("locationMessage", (message) => {
   $messages.insertAdjacentHTML("beforeend", html);
 });
 
+// evento do formulário para enviar as mensagens
 $messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   $messageFormButton.setAttribute("disabled", "disabled");
-  // disable
+
   const message = e.target.elements.message.value;
   socket.emit("sendMessage", message, (error) => {
     $messageFormButton.removeAttribute("disabled");
     $messageFormInput.value = "";
     $messageFormInput.focus();
-    // enable
+
     if (error) {
       return console.log(error);
     }
-    console.log("The message was delivered", message);
   });
 });
 
+// evento do botão utilizado para enviar a localização do usuário
 $sendLocationButton.addEventListener("click", () => {
   if (!navigator.geolocation) {
-    return alert("Geolocation is not supported by your browser");
+    return alert("Geolocalização não é suportada no seu browser!");
   }
 
   $sendLocationButton.setAttribute("disabled", "disabled");
@@ -109,12 +114,13 @@ $sendLocationButton.addEventListener("click", () => {
       },
       () => {
         $sendLocationButton.removeAttribute("disabled");
-        console.log("Location shared!");
       }
     );
   });
 });
 
+// socket responsável por emitir os dados do usuário
+// para ele se juntar em uma sala
 socket.emit("join", { username, room }, (error) => {
   if (error) {
     alert(error);
