@@ -38,7 +38,7 @@
 
 ## 💻 Sobre o projeto
 
-Um simples chat desenvolvido com Node.js para treinar e compreender melhor o framework Socket.io
+Um simples chat desenvolvido com Node.js para treinar e compreender melhor a biblioteca Socket.io
 
 Abaixo disponibilizei um link para o site hospedado:
 
