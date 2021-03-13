@@ -1,10 +1,10 @@
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/grochavieira/RealTimeChatApp?color=%2304D361&style=for-the-badge">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/grochavieira/real-time-chat-app?color=%2304D361&style=for-the-badge">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/grochavieira/RealTimeChatApp?style=for-the-badge">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/grochavieira/real-time-chat-app?style=for-the-badge">
   
-  <a href="https://github.com/grochavieira/RealTimeChatApp/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/grochavieira/RealTimeChatApp?style=for-the-badge">
+  <a href="https://github.com/grochavieira/real-time-chat-app/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/grochavieira/real-time-chat-app?style=for-the-badge">
   </a>
     
    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge">
@@ -43,7 +43,7 @@ Um simples chat desenvolvido com Node.js para treinar e compreender melhor a bib
 Abaixo disponibilizei um link para o site hospedado:
 
 <a align="center" href="https://grochavieira-chat-app.herokuapp.com/">
-    <img alt="Site RealTimeChatApp" src="https://img.shields.io/static/v1?label=Demonstra%C3%A7%C3%A3o&message=RealTimeChatApp&color=4953B8&style=for-the-badge&logo=heroku">
+    <img alt="Site real-time-chat-app" src="https://img.shields.io/static/v1?label=Demonstra%C3%A7%C3%A3o&message=real-time-chat-app&color=4953B8&style=for-the-badge&logo=heroku">
 </a>
 
 ---
@@ -90,10 +90,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/grochavieira/RealTimeChatApp.git
+$ git clone https://github.com/grochavieira/real-time-chat-app.git
 
 # Acesse a pasta do projeto no seu terminal/cmd
-$ cd RealTimeChatApp
+$ cd real-time-chat-app
 
 # Instale as dependências
 $ npm install
@@ -119,7 +119,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - **[mustache.js](https://cdnjs.com/libraries/mustache.js)**
 - **[qs.js](https://cdnjs.com/libraries/qs)**
 
-> Veja o arquivo [package.json](https://github.com/grochavieira/RealTimeChatApp/blob/master/package.json)
+> Veja o arquivo [package.json](https://github.com/grochavieira/real-time-chat-app/blob/master/package.json)
 
 #### **Utilitários**
 
