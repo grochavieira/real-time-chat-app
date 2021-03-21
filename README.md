@@ -38,7 +38,7 @@ Um simples chat desenvolvido com Node.js para treinar e compreender melhor a bib
 Abaixo disponibilizei um link para o site hospedado:
 
 <a align="center" href="https://grochavieira-chat-app.herokuapp.com/">
-    <img alt="Site real-time-chat-app" src="https://img.shields.io/static/v1?label=Demonstra%C3%A7%C3%A3o&message=real-time-chat-app&color=4953B8&style=flat&logo=heroku">
+    <img alt="Site real-time-chat-app" src="https://img.shields.io/static/v1?label=site&message=real-time-chat-app&color=4953B8&style=flat&logo=heroku">
 </a>
 
 ---
